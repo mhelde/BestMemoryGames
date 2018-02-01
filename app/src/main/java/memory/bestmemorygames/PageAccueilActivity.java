@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 
+import memory.bestmemorygames.boulier.Vue;
 import memory.bestmemorygames.memory.MainMemory;
 import memory.bestmemorygames.memory.MainMemoryEntrainement;
 import memory.bestmemorygames.score.ScoreFragment;
@@ -57,6 +58,45 @@ public class PageAccueilActivity extends AppCompatActivity
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Intent intent = new Intent(getApplicationContext(), MainMemoryEntrainement.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
+
+        //Button jeu boulier
+        ImageButton buttonBoulier = (ImageButton) findViewById(R.id.btn_boulier);
+        buttonMemory.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), Vue.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), Vue.class);
                                 startActivity(intent);
                                 finish();
                             }
