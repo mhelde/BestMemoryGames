@@ -77,7 +77,7 @@ public class PageAccueilActivity extends AppCompatActivity
 
         //Button jeu boulier
         ImageButton buttonBoulier = (ImageButton) findViewById(R.id.btn_boulier);
-        buttonMemory.setOnClickListener(new View.OnClickListener(){
+        buttonBoulier.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
@@ -151,6 +151,8 @@ public class PageAccueilActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, ParametreActivity.class);
+            startActivity(intent);
             return true;
         }
 
