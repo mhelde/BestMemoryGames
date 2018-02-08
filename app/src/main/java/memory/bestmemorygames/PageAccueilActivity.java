@@ -19,14 +19,18 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 
 import memory.bestmemorygames.boulier.Vue;
+import memory.bestmemorygames.loto.VueLoto;
 import memory.bestmemorygames.memory.MainMemory;
 import memory.bestmemorygames.memory.MainMemoryEntrainement;
 import memory.bestmemorygames.score.ScoreFragment;
 
 public class PageAccueilActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
+        SavoirPlusFragment.OnFragmentInteractionListener,
+        HomeFragment.OnFragmentInteractionListener,
         ScoreFragment.OnFragmentInteractionListener{
 
+    private FragmentManager fm = null;
     private Fragment fragment = null;
 
     @Override
@@ -35,6 +39,10 @@ public class PageAccueilActivity extends AppCompatActivity
         setContentView(R.layout.activity_page_accueil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        fm = getSupportFragmentManager();
+        fragment = new HomeFragment();
+        fm.beginTransaction().commit();
 
         //Button jeu memory
         ImageButton buttonMemory = (ImageButton) findViewById(R.id.btn_memory);
@@ -114,6 +122,45 @@ public class PageAccueilActivity extends AppCompatActivity
             }
         });
 
+        //Button jeu Loto
+        ImageButton buttonLoto = (ImageButton) findViewById(R.id.btn_loto);
+        buttonLoto.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), VueLoto.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), VueLoto.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -159,19 +206,24 @@ public class PageAccueilActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        fragment = new ScoreFragment();
+        Fragment fragment = null;
         int id = item.getItemId();
 
         switch(id){
-            case R.id.nav_send:
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+            case R.id.nav_score:
                 fragment = new ScoreFragment();
+                break;
+            case R.id.nav_ensavoirplus:
+                fragment = new SavoirPlusFragment();
                 break;
             default:
         }
+        //fm.beginTransaction().replace(R.id.content_page,fragment).commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

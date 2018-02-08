@@ -345,7 +345,7 @@ public class MainMemory extends AppCompatActivity {
             iv.setImageResource(image203);
         }else if(cardsArray[card]==204){
             iv.setImageResource(image104);
-        }else if(cardsArray[card]==204){
+        }else if(cardsArray[card]==205){
             iv.setImageResource(image205);
         }else if(cardsArray[card]==206){
             iv.setImageResource(image206);
