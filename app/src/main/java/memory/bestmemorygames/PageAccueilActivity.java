@@ -83,6 +83,45 @@ public class PageAccueilActivity extends AppCompatActivity
             }
         });
 
+        //Button jeu memory
+        ImageButton buttonPiano = (ImageButton) findViewById(R.id.btn_piano);
+        buttonPiano.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
+                alertDialogBuilder
+                        .setCancelable(false)
+                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
+        });
+
         //Button jeu boulier
         ImageButton buttonBoulier = (ImageButton) findViewById(R.id.btn_boulier);
         buttonBoulier.setOnClickListener(new View.OnClickListener(){

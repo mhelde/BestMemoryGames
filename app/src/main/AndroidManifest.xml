@@ -34,7 +34,15 @@
         <activity
             android:name=".ParametreActivity"
             android:label="@string/title_activity_parametre" />
-        <activity android:name=".loto.VueLoto"></activity>
+        <activity
+            android:name=".loto.VueLoto"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".nombres.VueNombres"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".piano.Vue"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
