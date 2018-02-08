@@ -13,7 +13,8 @@
         android:layout_height="48dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="2dp">
+        tools:layout_editor_absoluteY="2dp"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/textView13"
@@ -21,7 +22,8 @@
             android:layout_height="wrap_content"
             android:text="Score : 0"
             android:textAlignment="textEnd"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:gravity="end" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,7 +31,8 @@
         android:layout_height="202dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="51dp">
+        tools:layout_editor_absoluteY="51dp"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/imageView2"
@@ -43,7 +46,8 @@
         android:layout_height="53dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="258dp">
+        tools:layout_editor_absoluteY="258dp"
+        tools:ignore="MissingConstraints">
 
         <Button
             android:id="@+id/button"

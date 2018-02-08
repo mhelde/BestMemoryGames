@@ -21,7 +21,7 @@ import memory.bestmemorygames.R;
 //Fait office de vue et de contrôleur en même temps
 public class Vue extends AppCompatActivity implements View.OnClickListener {
 
-    private static String TAG = "VueLoto"; //Permet de créer des messages de Debug plus comphréensible avec Log.d
+    private static String TAG = "Vue"; //Permet de créer des messages de Debug plus comphréensible avec Log.d
 
     protected Model m;
     protected Button reponse;
