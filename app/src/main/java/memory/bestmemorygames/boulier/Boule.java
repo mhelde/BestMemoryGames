@@ -41,6 +41,10 @@ public class Boule {
         couleur = Couleur.VIDE;
     }
 
+    public void setCouleur(Couleur couleur) {
+        this.couleur = couleur;
+    }
+
     public boolean isActive() {
         return active;
     }

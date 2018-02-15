@@ -80,6 +80,7 @@ public class Model {
         score = 0;
         nbTouchesReussies = 0;
         inParty = false;
+        inAction = false;
     }
 
     public boolean verifToucheJoueur(Touche touche) { //Vérifie si la touche correspond à celle attendu actuellement dans la séquence

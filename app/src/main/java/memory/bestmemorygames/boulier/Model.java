@@ -16,6 +16,8 @@ public class Model {
     private int nbSecondesVerif;
     private int score;
 
+    private Boule selectedBoule; //Est la boule sélectionner dont on veut changer la couleur
+
     private boolean inAction;
 
     public Model() {
@@ -31,6 +33,7 @@ public class Model {
         nbTentatives = NB_TENTATIVES_MAX;
         nbSecondesVerif = 15;
         score = 0;
+        selectedBoule = null;
         inAction = true;
     }
 
@@ -119,6 +122,14 @@ public class Model {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public Boule getSelectedBoule() {
+        return selectedBoule;
+    }
+
+    public void setSelectedBoule(Boule selectedBoule) {
+        this.selectedBoule = selectedBoule;
     }
 }
 

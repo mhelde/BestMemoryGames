@@ -6,6 +6,10 @@
     <color name="fond">#fff780</color>
     <color name="bordure">#000000</color>
     <color name="blanc">#ffffff</color>
-    <color name="red" />
+
+    <color name="erreur">#ff0000</color>
+    <color name="correct">#0bdc00</color>
+    <color name="notInGame">#bfbfbf</color>
+    <color name="tourOrdi">#00a4e6</color>
 
 </resources>

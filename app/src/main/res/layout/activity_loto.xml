@@ -45,9 +45,9 @@
         android:layout_width="602dp"
         android:layout_height="53dp"
         android:orientation="vertical"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="258dp"
-        tools:ignore="MissingConstraints">
+        tools:layout_editor_absoluteY="290dp">
 
         <Button
             android:id="@+id/button"

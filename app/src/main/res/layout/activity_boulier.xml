@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/boulier"
-    tools:context="memory.bestmemorygames.boulier.Vue">
+    tools:context=".boulier.Vue">
+
 
     <Button
         android:id="@+id/reponse"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginEnd="255dp"
-        android:layout_marginStart="255dp"
+        android:layout_marginEnd="245dp"
+        android:layout_marginStart="245dp"
         android:layout_marginTop="240dp"
         android:text="@string/rep"
         android:textSize="15sp"
@@ -26,10 +27,60 @@
         tools:background="@android:color/background_light" />
 
     <LinearLayout
+        android:id="@+id/choose"
+        android:layout_width="300dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginStart="10dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/ibleu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bleu" />
+
+        <ImageView
+            android:id="@+id/ijaune"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/jaune" />
+
+        <ImageView
+            android:id="@+id/irouge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/rouge" />
+
+        <ImageView
+            android:id="@+id/ivert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/vert" />
+
+        <ImageView
+            android:id="@+id/iviolet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/violet" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/haut"
         android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="178dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="175dp"
         android:orientation="horizontal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +95,7 @@
         android:id="@+id/centre"
         android:layout_width="0dp"
         android:layout_height="20dp"
-        android:layout_marginTop="138dp"
+        android:layout_marginTop="134dp"
         android:orientation="horizontal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,8 +109,8 @@
     <LinearLayout
         android:id="@+id/bas"
         android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="172dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="168dp"
         android:orientation="horizontal"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

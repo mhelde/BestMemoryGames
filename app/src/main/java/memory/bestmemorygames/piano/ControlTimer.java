@@ -56,9 +56,7 @@ public class ControlTimer implements Runnable {
                     m.addSequenceOrdi(m.getPlaceSequence() - 1, m.getTouches()[position]); //Important de mettre une touche DEJA présente dans les touches du model
                 }
 
-                //m.setInAction(false);
-                v.lanceAnimationBouton(position); //Remplace le DoClick du prototype java
-                //m.setInAction(true);
+                v.lanceAnimationBouton(position, R.drawable.button_background_tourordi); //Remplace le DoClick du prototype java
 
                 Log.d(TAG, "Touche " + m.getPlaceSequence() + "/" + m.getTailleSequence() + ": position: " + (position + 1));
                 m.avanceSequence();
@@ -69,41 +67,30 @@ public class ControlTimer implements Runnable {
                 m.setTourJoueur(true);
                 v.etatAVous();
                 m.reinitPlaceSequence();
-                //joueToucheDelaiDebut();
             }
 
-        } else if(actualHandler == v.handlerClignotement) {
-            for(int i = 0; i < v.piano.length; i++) {
-                if(m.getTouches()[i].isEstActif()) {
-                    if(m.getTouches()[i].getCouleur() == Couleur.BLANC) {
-                        v.piano[i].setBackgroundResource(R.drawable.button_background_blanc);
-                    } else if(m.getTouches()[i].getCouleur() == Couleur.NOIR) {
-                        v.piano[i].setBackgroundResource(R.drawable.button_background_noir);
-                    }
-                    m.getTouches()[i].setEstActif(false);
+        } else if(actualHandler == v.handlerClignotement || actualHandler == v.handlerErreur) {
 
-                    if(!m.isTourJoueur() && m.isInParty()) {
-                        actualHandler = v.handlerJoueTouche;
-                    } else {
-                        m.setInAction(false);
-                    }
+            v.restoreTouches();
 
+            if(actualHandler == v.handlerClignotement) {
+                if (!m.isTourJoueur() && m.isInParty()) {
+                    actualHandler = v.handlerJoueTouche;
+                } else {
+                    m.setInAction(false); //Cela empêche le joueur d'avoir la main avant que l'ordi commence à jouer
                 }
+            } else if (actualHandler == v.handlerErreur) {
+                v.creerDialogPerdu();
+                m.reinitPiano();
+                m.setTourJoueur(false);
+                v.finPartie();
             }
-                /*for (int i = 0; i < v.touches.length; i++) {
-                    for (int j = 0; j < v.touches.length; j++) {
-                        if (m.getTouches()[i][j].isEstActif()) {
-                            if(m.getTouches()[i][j].getCouleur() == Couleur.BLANC) {
-                                v.touches[i][j].setBackground(Color.WHITE);
-                            } else if (m.getTouches()[i][j].getCouleur() == Couleur.NOIR) {
-                                v.touches[i][j].setBackground(Color.BLACK);
-                            }
-                            m.getTouches()[i][j].setEstActif(false);
-                            if(!v.timerJoueTouche.isRunning()) //Pour ne pas laisser accidentellement la main à l'utilisateur pendant qu'une séquence est jouer
-                                m.setInAction(false);
-                            v.timerClignotementTouche.stop();
-                        }
-                    }*/
+        } else if (actualHandler == v.handlerCorrect) {
+            m.succesReproductionSequence();
+            v.changeScore();
+            v.etatEnCours();
+            v.correct.jouer();
+            v.ctJoueTouche.start(v.handlerJoueTouche, v.tempsEntreSequences);
         }
     }
 }

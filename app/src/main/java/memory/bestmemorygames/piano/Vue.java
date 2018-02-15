@@ -20,9 +20,13 @@ public class Vue extends AppCompatActivity implements View.OnClickListener {
 
     protected Button[] piano;
     protected Son[] sonsPiano;
+    protected Son erreur;
+    protected Son correct;
 
-    protected Handler handlerClignotement;
-    protected Handler handlerJoueTouche;
+    protected Handler handlerClignotement; //Cet handler sert à faire clignoter les touches à différentes couleurs
+    protected Handler handlerJoueTouche; //Cet handler sert à faire jouer l'ordi
+    protected Handler handlerErreur; //Ressemble au handlerClignotement, à l'exception près qu'il enclenche la fin de la partie
+    protected Handler handlerCorrect;
     protected ControlTimer ctClignotement;
     protected ControlTimer ctJoueTouche;
 
@@ -49,13 +53,18 @@ public class Vue extends AppCompatActivity implements View.OnClickListener {
 
         tempsDebut = 100;
         tempsDurantSequence = 2000;
-        tempsEntreSequences = 2500;
+        tempsEntreSequences = 3500;
 
         initButtons();
         initSons();
 
+        erreur = new Son(R.raw.erreurpian, this);
+        correct = new Son(R.raw.correctpian, this);
+
         handlerClignotement = new Handler();
         handlerJoueTouche = new Handler();
+        handlerErreur = new Handler();
+        handlerCorrect = new Handler();
         ctClignotement = new ControlTimer(m, this);
         ctJoueTouche = new ControlTimer(m, this);
     }
@@ -120,6 +129,19 @@ public class Vue extends AppCompatActivity implements View.OnClickListener {
         showScore.setText(getString(R.string.debScore) + ": " + m.getScore());
     }
 
+    public void restoreTouches() { //Restore les touches à leurs couleur initial
+        for(int i = 0; i < piano.length; i++) {
+            if (m.getTouches()[i].isEstActif()) {
+                if (m.getTouches()[i].getCouleur() == Couleur.BLANC) {
+                    piano[i].setBackgroundResource(R.drawable.button_background_blanc);
+                } else if (m.getTouches()[i].getCouleur() == Couleur.NOIR) {
+                    piano[i].setBackgroundResource(R.drawable.button_background_noir);
+                }
+                m.getTouches()[i].setEstActif(false);
+            }
+        }
+    }
+
     public void creerDialogPerdu() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(getString(R.string.perduTexte1p1) + "\n" + getString(R.string.perduTexte1p2) + " " + m.getScore() + " " + getString(R.string.perduTexte2) + " " + m.getNbTouchesReussies() + " " + getString(R.string.perduTexte3));
@@ -158,35 +180,54 @@ public class Vue extends AppCompatActivity implements View.OnClickListener {
                     if(m.isTourJoueur()) {
                         Touche toucheAVerifier = m.getTouches()[i];
                         if(!m.verifToucheJoueur(toucheAVerifier)) {
-                            creerDialogPerdu();
-                            m.reinitPiano();
-                            m.setTourJoueur(false);
-                            finPartie();
+                            lanceAnimationPerdue(i);
                             return;
                         } else {
                             m.avanceSequence();
                             m.augmenteNbTouchesReussies();
-                            lanceAnimationBouton(i);
+                            lanceAnimationBouton(i, R.drawable.button_background_correct);
                             if(m.getPlaceSequence() >= m.getTailleSequence()) {
-                                m.succesReproductionSequence();
-                                changeScore();
-                                etatEnCours();
                                 m.setTourJoueur(false);
-                                ctJoueTouche.start(handlerJoueTouche, tempsEntreSequences);
+                                ctJoueTouche.start(handlerCorrect, 1000);
                             }
                         }
                     } else {
-                        lanceAnimationBouton(i);
+                        lanceAnimationBouton(i, R.drawable.button_background_notingame);
                     }
                 }
             }
         }
     }
-    public void lanceAnimationBouton(int i) {
-        piano[i].setBackgroundColor(Color.RED);
+    public void lanceAnimationBouton(int i, int couleurClignotement) {
+        piano[i].setBackgroundResource(couleurClignotement);
         sonsPiano[i].jouer();
         m.getTouches()[i].setEstActif(true);
         m.setInAction(true);
         ctClignotement.start(handlerClignotement, 500);
+    }
+
+    public void lanceAnimationPerdue(int i) {
+        int indice = trouverBonneTouche();
+
+        if(indice < 0) {
+            Log.e(TAG, "Erreur: la bonne touche n'a pas été trouvé");
+            return;
+        }
+
+        piano[indice].setBackgroundResource(R.drawable.button_background_correct);
+        m.getTouches()[indice].setEstActif(true);
+        piano[i].setBackgroundResource(R.drawable.button_background_erreur);
+        m.getTouches()[i].setEstActif(true);
+        m.setInAction(true);
+        erreur.jouer();
+        ctClignotement.start(handlerErreur, 3000);
+    }
+
+    public int trouverBonneTouche() { //Renvoie l'index de la touche sur laquelle il fallait appuyer
+        for(int x = 0; x < piano.length; x++) {
+            if(m.verifToucheJoueur(m.getTouches()[x]))
+                return x;
+        }
+        return -1;
     }
 }

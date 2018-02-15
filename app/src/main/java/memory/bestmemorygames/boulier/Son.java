@@ -1,4 +1,4 @@
-package memory.bestmemorygames.piano;
+package memory.bestmemorygames.boulier;
 
 import android.app.Activity;
 import android.content.res.AssetFileDescriptor;
@@ -8,7 +8,7 @@ import android.media.SoundPool;
 import android.util.Log;
 
 
-public class Son  {
+public class Son {
     private int sonId;
     private static final String TAG = "Son";
     private SoundPool soundPool;
@@ -46,4 +46,3 @@ public class Son  {
         //s1.stop();
     }
 }
-
