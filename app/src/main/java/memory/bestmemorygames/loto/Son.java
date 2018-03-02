@@ -1,30 +1,49 @@
 package memory.bestmemorygames.loto;
 
 
-import java.net.URL;
+import android.app.Activity;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.util.Log;
 
-public class Son extends Thread{
-//    private URL u1;//l'url de ton fichier son
-//    private AudioClip s1;//le son créé depuis ton url
-//
-//    public Son(String nomFichier) {
-//        try {
-//            u1 = getClass().getResource(nomFichier);
-//        } catch(NullPointerException e) {
-//            System.out.println("FICHIER SON NON TROUVE!");
-//        }
-//
-//        s1 = Applet.newAudioClip(u1);;
-//    }
-//    public void jouer() {
-//        s1.play();
-//    }
-//
-//    public void jouerEnBoucle() {
-//        s1.loop();
-//    }
-//
-//    public void arreter() {
-//        s1.stop();
-//    }
+
+public class Son {
+    private int sonId;
+    private static final String TAG = "Son";
+    private SoundPool soundPool;
+    private boolean loaded = false;
+
+    public Son(int idtoLoad, Activity vue) {
+        vue.setVolumeControlStream(AudioManager.STREAM_MUSIC);
+        soundPool = new SoundPool(20, AudioManager.STREAM_MUSIC, 0);
+
+        AssetManager assetManager = vue.getAssets();
+
+        AssetFileDescriptor descriptor = null;
+        sonId = soundPool.load(vue, idtoLoad, 1);
+        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                Log.d(TAG, "Le son est prêt pour utilisation");
+                loaded = true;
+            }
+        });
+    }
+
+    public void jouer() {
+        if (loaded)
+            soundPool.play(sonId, 1, 1, 0, 0, 1);
+        else
+            Log.d(TAG, "Le son n'est pas encore prêt");
+    }
+
+    public void jouerEnBoucle() {
+        soundPool.play(sonId, 1, 1, 0, -1, 0);
+    }
+
+    public void arreter() {
+        soundPool.stop(sonId);
+    }
 }

@@ -3,11 +3,12 @@ package memory.bestmemorygames.loto;
 
 public class Grille {
 
-    private static final int NB_CASES_ACTIVES = 15;
-    private static int NB_LIGNES = 4;
-    private static int NB_COLONNES = 7;
+    private static int NB_CASES_ACTIVES = 12;
+    private static int NB_LIGNES = 3;
+    private static int NB_COLONNES = 6;
+    private static int NB_MAX = 30; //Indique le plus gros nombre qu'on peut avoir
     private Case[][] cases;
-    private boolean[] valeursDispo; //Les cases auront une valeur entre 1 et 50, ainsi valeursDispo[0] indique si la valeur 1 peut être prise par une case
+    private boolean[] valeursDispo; //Les cases auront une valeur entre 1 et NB_MAX, ainsi valeursDispo[0] indique si la valeur 1 peut être prise par une case
     //ATTENTION ! en effet valeursDispo[0] est bien pour 1, ainsi valeursDispo[i] représente i+1
 
 
@@ -18,7 +19,7 @@ public class Grille {
 
     public Grille() {
         cases = new Case[NB_LIGNES][NB_COLONNES];
-        valeursDispo = new boolean[50];
+        valeursDispo = new boolean[NB_MAX];
         lignesCompletes = new boolean[NB_LIGNES];
         colonnesCompletes = new boolean[NB_COLONNES];
         initToNullCases();
@@ -197,5 +198,26 @@ public class Grille {
             }
             System.out.println("|");
         }
+    }
+
+    public static void grandeGrille() {
+        NB_CASES_ACTIVES = 12;
+        NB_LIGNES = 3;
+        NB_COLONNES = 6;
+        NB_MAX = 30;
+    }
+
+    public static void moyenneGrille() {
+        NB_CASES_ACTIVES = 9;
+        NB_LIGNES = 3;
+        NB_COLONNES = 4;
+        NB_MAX = 20;
+    }
+
+    public static void petiteGrille() {
+        NB_CASES_ACTIVES = 5;
+        NB_LIGNES = 2;
+        NB_COLONNES = 3;
+        NB_MAX = 10;
     }
 }

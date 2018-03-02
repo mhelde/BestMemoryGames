@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+        android:key="pref_apropos"
+        android:singleLine="true"
+        android:enabled="true"
+        android:selectable="false"
+        android:title="A propos de l'application" />
+    <EditTextPreference
+        android:height="200px"
+        android:enabled="true"
+        android:key="pref_apropos"
+        android:selectAllOnFocus="false"
+        android:selectable="false"
+        android:singleLine="false"
+        android:summary="Notre application consiste à faire travailler la mémoire chez les jeunes, ainsi que chez les adultes qui ont des
+problèmes de mémoire. Le cerveau est un muscle qu'il faut faire travailler autant que les muscles des bras et des jambes, qui se travaillent naturellement.
+"
+        android:visibility="visible" />
+
+    <EditTextPreference
+        android:height="200px"
+        android:enabled="true"
+        android:key="pref_apropos"
+        android:selectAllOnFocus="false"
+        android:selectable="false"
+        android:singleLine="false"
+        android:summary="Un médecin nous a permis de comprendre le problème de la mémoire. Cela peut être dû au stress,à la fatigue, à un manque
+de concentration ou à une pathologie plus grave comme un AVC ou la maladie Alzheimer."
+        android:visibility="visible" />
+
+    <EditTextPreference
+        android:height="200px"
+        android:enabled="true"
+        android:key="pref_apropos"
+        android:selectAllOnFocus="false"
+        android:selectable="false"
+        android:singleLine="false"
+        android:summary="La mémorisation, c'est la transmission d'une information chimique u électrique entre les cellules (neurones)
+à travers la membrane cellulaire. En gros les neurones se connectent entre eux pour constituer un souvenir."
+        android:visibility="visible" />
+
+
+    <EditTextPreference
+        android:height="200px"
+        android:enabled="true"
+        android:key="pref_apropos"
+        android:selectAllOnFocus="false"
+        android:selectable="false"
+        android:singleLine="false"
+        android:title="Troubles de mémoire à court terme"
+        android:summary="Ces troubles peuvent survenir à cause d'une maladie affectant la mémoire. ils peuvent également être d'origine émotionnelle.
+ Les pertes ponctuelles de mémoire à court terme peuvent s'éliminer avec une meilleur hygiène de vie et une stimulation
+de la mémoire avec un peu d'entraînement cérébral."
+        android:visibility="visible" />
+
+    <EditTextPreference
+        android:height="200px"
+        android:enabled="true"
+        android:key="pref_apropos"
+        android:selectAllOnFocus="false"
+        android:selectable="false"
+        android:singleLine="false"
+        android:title="Troubles de mémoire à long terme"
+        android:summary="Il s'agit d'amnésie, une perte totale ou partielle de souvenirs ou de compétences comme le langage ou la motricité."
+        android:visibility="visible" />
+</PreferenceScreen>

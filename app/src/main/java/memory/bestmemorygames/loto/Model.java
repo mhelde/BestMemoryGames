@@ -11,6 +11,10 @@ public class Model {
     private int nbSecondesVerif; //Utilisé en début de partie
     private Grille grille;
 
+    private int nbClignotementsGrille;
+    private int phaseColorisationLigneActu;
+    private int phaseColorisationColonneActu;
+
     private ArrayList<String> statistiques; //Pour le debug: contiendra tous les nombres passé en tant que nombreActu avec B pour "Bonne Réaction" et M pour "Mauvaise Réaction"
 
     private boolean inAction;
@@ -76,6 +80,7 @@ public class Model {
     }
 
     public void nouvelleGrille() { //Génère une nouvelle Grille aléatoire et prépare le début de la manche suivante
+        nbClignotementsGrille = 0;
         nbSecondesVerif = 15;
         grille = new Grille();
         grille.print();
@@ -129,5 +134,37 @@ public class Model {
 
     public void reduitNbSecondesVerif() {
         nbSecondesVerif--;
+    }
+
+    public void incrementenbClignotementGrille() {
+        nbClignotementsGrille++;
+    }
+
+    public int getNbClignotementsGrille() {
+        return nbClignotementsGrille;
+    }
+
+    public void incrementePhaseColorisationLigneActu() {
+        phaseColorisationLigneActu++;
+    }
+
+    public void resetPhaseColorisationLigneActu() {
+        phaseColorisationLigneActu = 0;
+    }
+
+    public int getPhaseColorisationLigneActu() {
+        return phaseColorisationLigneActu;
+    }
+
+    public void incrementePhaseColorisationColoneActu() {
+        phaseColorisationColonneActu++;
+    }
+
+    public void resetPhaseColorisationColoneActu() {
+        phaseColorisationColonneActu = 0;
+    }
+
+    public int getPhaseColorisationColonneActu() {
+        return phaseColorisationColonneActu;
     }
 }

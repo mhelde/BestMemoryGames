@@ -9,6 +9,10 @@
     tools:context="memory.bestmemorygames.PageAccueilActivity"
     tools:showIn="@layout/app_bar_page_accueil">
 
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -163,10 +167,34 @@
                 android:text="Mémorises les nombres pour les retrouver dans le bon ordre !"
                 android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Score"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btn_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/blanc"
+                app:srcCompat="@mipmap/imagescore" />
+
         </LinearLayout>
 
 
 
     </ScrollView>
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

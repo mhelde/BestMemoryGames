@@ -2,16 +2,9 @@ package memory.bestmemorygames;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -22,16 +15,9 @@ import memory.bestmemorygames.boulier.Vue;
 import memory.bestmemorygames.loto.VueLoto;
 import memory.bestmemorygames.memory.MainMemory;
 import memory.bestmemorygames.memory.MainMemoryEntrainement;
-import memory.bestmemorygames.score.ScoreFragment;
+import memory.bestmemorygames.score2.MainScore;
 
-public class PageAccueilActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        SavoirPlusFragment.OnFragmentInteractionListener,
-        HomeFragment.OnFragmentInteractionListener,
-        ScoreFragment.OnFragmentInteractionListener{
-
-    private FragmentManager fm = null;
-    private Fragment fragment = null;
+public class PageAccueilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +25,6 @@ public class PageAccueilActivity extends AppCompatActivity
         setContentView(R.layout.activity_page_accueil);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        fm = getSupportFragmentManager();
-        fragment = new HomeFragment();
-        fm.beginTransaction().commit();
 
         //Button jeu memory
         ImageButton buttonMemory = (ImageButton) findViewById(R.id.btn_memory);
@@ -83,7 +65,7 @@ public class PageAccueilActivity extends AppCompatActivity
             }
         });
 
-        //Button jeu memory
+        //Button jeu piano
         ImageButton buttonPiano = (ImageButton) findViewById(R.id.btn_piano);
         buttonPiano.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -200,26 +182,18 @@ public class PageAccueilActivity extends AppCompatActivity
             }
         });
 
+        //Button jeu score
+        ImageButton buttonScore = (ImageButton) findViewById(R.id.btn_score);
+        buttonScore.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainScore.class);
+                startActivity(intent);
+            }
+        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -243,34 +217,5 @@ public class PageAccueilActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        Fragment fragment = null;
-        int id = item.getItemId();
-
-        switch(id){
-            case R.id.nav_home:
-                fragment = new HomeFragment();
-            case R.id.nav_score:
-                fragment = new ScoreFragment();
-                break;
-            case R.id.nav_ensavoirplus:
-                fragment = new SavoirPlusFragment();
-                break;
-            default:
-        }
-        //fm.beginTransaction().replace(R.id.content_page,fragment).commit();
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 }

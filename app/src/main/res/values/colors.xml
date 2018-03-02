@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff4081</color>
     <color name="fond">#fff780</color>
     <color name="bordure">#000000</color>
     <color name="blanc">#ffffff</color>
@@ -12,4 +12,9 @@
     <color name="notInGame">#bfbfbf</color>
     <color name="tourOrdi">#00a4e6</color>
 
+
+    <color name="desactive">#878787</color>
+
+    <color name="jaune">#fff780</color>
+    <color name="bleu">#00a4e6</color>
 </resources>

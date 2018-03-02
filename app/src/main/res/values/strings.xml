@@ -14,9 +14,9 @@
     <string name="debScore">Score</string>
     <string name="sequence">Regardez la séquence.</string>
 
-    <string name="tentative">Vous disposez de n tentatives pour avoir une séquence complètement correct, bonne chance.</string>
+    <string name="tentative">Vous disposez de n tentatives</string>
     <string name="debTentative">Vous disposez de</string>
-    <string name="endTentative">tentatives pour avoir une séquence complètement correct, bonne chance.</string>
+    <string name="endTentative"></string>
     <string name="notLastTentative">Tentatives restantes:</string>
     <string name="lastTentative">Dernière tentative !</string>
 
@@ -32,7 +32,7 @@
     <string name="sequenceCompleteOk">Génial !</string>
 
     <string name="tentativeEpuiseesTexte">Votre nombre de tentatives est épuisé...</string>
-    <string name="tentativeEpuiseesTitre">Perdue !</string>
+    <string name="tentativeEpuiseesTitre">Perdu !</string>
     <string name="tentativeEpuisseOk">Mince...</string>
 
     <string name="resetTexte">Voulez-vous rejouez ?</string>
@@ -119,10 +119,26 @@
     <string name="tourJoueur">A vous !</string>
     <string name="lancerButtonText">Lancer</string>
 
-    <string name="perduTitre">Perdue !</string>
     <string name="perduTexte1p1">Vous avez appuyé sur la mauvaise touche.</string>
     <string name="perduTexte1p2"> Vous avez fait un score de</string>
     <string name="perduTexte2">et vous avez appuyé correctement sur</string>
     <string name="perduTexte3">touche(s) dans cette séquence.</string>
-    <string name="perduOk">Oups !</string>
+
+    <string name="rec">Réclamer</string>
+
+    <string name="regardez">Regardez ces nombres.</string>
+
+    <string name="plus1">+1</string>
+    <string name="plus5lig">+1/+5 (ligne)</string>
+    <string name="plus5col">+1/+5 (colonne)</string>
+    <string name="plus10">+1/+10 (ligne et colonne)</string>
+    <string name="plus50">+50 (grille)</string>
+
+    <string name="completTitre">Grille complète</string>
+    <string name="completTexte">Vous avez compléter cette Grille !!!!</string>
+    <string name="completOk">Je suis prêt pour la prochaine !</string>
+
+    <string name="perduTitre">Perdue !</string>
+    <string name="perduTexte">Vous avez perdu tous vos vies...</string>
+    <string name="perduOk">Aie...</string>
 </resources>
