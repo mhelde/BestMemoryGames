@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="memory.bestmemorygames.aide.AideMemory">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fond_aide">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Apprendre à jouer au memory"
+                android:textAlignment="center"
+                android:textColor="@color/bordure"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Tout d’abord, les cartes sont mélangées et disposées faces cachées, afin qu’aucun joueurs ne puissent les identifier.
+Le joueur retourne 2 cartes de son choix en appuyant dessus.
+
+              - Si les cartes sont identiques, vous gagnez 1 Point.
+                  - Si les cartes ne sont pas identiques, les cartes sont retournées face cachées de nouveau. Ainsi de suite !"
+                android:textAlignment="center"
+                android:textColor="@color/bordure"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

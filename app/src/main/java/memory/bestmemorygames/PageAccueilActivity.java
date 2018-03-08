@@ -27,39 +27,32 @@ public class PageAccueilActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //Button jeu memory
-        ImageButton buttonMemory = (ImageButton) findViewById(R.id.btn_memory);
+        final ImageButton buttonMemory = (ImageButton) findViewById(R.id.btn_memory);
         buttonMemory.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
-                alertDialogBuilder
-                        .setCancelable(false)
-                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setTitle("Choississez ce que vous voulez faire :");
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), MainMemory.class);
+                // add a list
+                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règle du jeu"};
+                alertDialogBuilder.setItems(choix, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0: Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.memory.MainMemory.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                        })
-                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
+                            case 1: Intent intent1 = new Intent(getApplicationContext(), memory.bestmemorygames.memory.MainMemoryEntrainement.class);
+                                startActivity(intent1);
+                                finish();
+                            case 2: Intent intent2 = new Intent(getApplicationContext(),memory.bestmemorygames.aide.AideMemory.class);
+                                startActivity(intent2);
+                                finish();
+                        }
+                    }
+                });
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), MainMemoryEntrainement.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        })
-                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
-                                startActivity(intent);
-                                finish();
-                            }
-                        });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
@@ -71,34 +64,26 @@ public class PageAccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
-                alertDialogBuilder
-                        .setCancelable(false)
-                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setTitle("Choississez ce que vous voulez faire :");
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
+                // add a list
+                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règle du jeu"};
+                alertDialogBuilder.setItems(choix, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0: Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                        })
-                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
-                                startActivity(intent);
+                            case 1: Intent intent1 = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
+                                startActivity(intent1);
                                 finish();
-                            }
-                        })
-                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
-                                startActivity(intent);
+                            case 2: Intent intent2 = new Intent(getApplicationContext(),memory.bestmemorygames.aide.AidePiano.class);
+                                startActivity(intent2);
                                 finish();
-                            }
-                        });
+                        }
+                    }
+                });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
