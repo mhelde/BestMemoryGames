@@ -117,7 +117,7 @@
 
     <string name="tourMachine">Ecoutez la séquence...</string>
     <string name="tourJoueur">A vous !</string>
-    <string name="lancerButtonText">Lancer</string>
+    <string name="lancerButtonText"> Lancer </string>
 
     <string name="perduTexte1p1">Vous avez appuyé sur la mauvaise touche.</string>
     <string name="perduTexte1p2"> Vous avez fait un score de</string>

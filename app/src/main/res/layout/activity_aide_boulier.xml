@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="memory.bestmemorygames.aide.AidePiano">
+    tools:context="memory.bestmemorygames.aide.AideBoulier">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,35 +17,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView33"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:text="Apprendre à jouer au piano"
+                android:text="Apprendre à jouer au boulier"
                 android:textAlignment="center"
+                android:textAllCaps="false"
                 android:textColor="@color/bordure"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView34"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/textView35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:text="Tout d'abord, l'ordinateur va mettre en évidence une touche du piano. Puis à votre tour, vous devrez reproduire ce que l'ordinateur a fait en appuyant sur la même touche.
-Ensuite, cela va se compliquer, l'ordinateur va refaire la même chose mais en ajoutant une nouvelle touche à appuyer. Ainsi de suite.
-Attention, retenez bien la séquence des touches pour gagner un maximum de points !"
+                android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="@color/bordure"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/textView36"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
@@ -67,7 +65,7 @@ Attention, retenez bien la séquence des touches pour gagner un maximum de point
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/id_button_entrainement"
+                    android:id="@+id/id_button_entraînement"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,7 +76,7 @@ Attention, retenez bien la séquence des touches pour gagner un maximum de point
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/id_button_accueil"
+                    android:id="@+id/button3"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="memory.bestmemorygames.aide.AidePiano">
+    tools:context="memory.bestmemorygames.aide.AideNombres">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,35 +17,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:text="Apprendre à jouer au piano"
+                android:text="Apprendre à jouer au jeu des nombres"
                 android:textAlignment="center"
                 android:textColor="@color/bordure"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView30"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center" />
+                android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/textView31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="monospace"
-                android:text="Tout d'abord, l'ordinateur va mettre en évidence une touche du piano. Puis à votre tour, vous devrez reproduire ce que l'ordinateur a fait en appuyant sur la même touche.
-Ensuite, cela va se compliquer, l'ordinateur va refaire la même chose mais en ajoutant une nouvelle touche à appuyer. Ainsi de suite.
-Attention, retenez bien la séquence des touches pour gagner un maximum de points !"
+                android:text="Tout d'abord, vous allez voir un certain nombre de nombres pendant 5 secondes.
+Ensuite, vous devrez mémoriser l'endroit et le nombre, afin de les cliquer dans l'ordre croissant."
                 android:textAlignment="center"
                 android:textColor="@color/bordure"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/textView32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp" />
@@ -74,7 +72,7 @@ Attention, retenez bien la séquence des touches pour gagner un maximum de point
                     android:layout_weight="1"
                     android:fontFamily="monospace"
                     android:text="Entraînement"
-                    android:textSize="18sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <Button

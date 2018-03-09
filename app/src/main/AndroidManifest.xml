@@ -51,7 +51,10 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".aide.AideMemory" />
-        <activity android:name=".aide.AidePiano"></activity>
+        <activity android:name=".aide.AidePiano" />
+        <activity android:name=".aide.AideLoto" />
+        <activity android:name=".aide.AideNombres" />
+        <activity android:name=".aide.AideBoulier"></activity>
     </application>
 
 </manifest>

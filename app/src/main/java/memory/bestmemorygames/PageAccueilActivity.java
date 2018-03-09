@@ -35,7 +35,7 @@ public class PageAccueilActivity extends AppCompatActivity {
                 alertDialogBuilder.setTitle("Choississez ce que vous voulez faire :");
 
                 // add a list
-                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règle du jeu"};
+                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règles du jeu"};
                 alertDialogBuilder.setItems(choix, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -67,7 +67,7 @@ public class PageAccueilActivity extends AppCompatActivity {
                 alertDialogBuilder.setTitle("Choississez ce que vous voulez faire :");
 
                 // add a list
-                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règle du jeu"};
+                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règles du jeu"};
                 alertDialogBuilder.setItems(choix, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -95,34 +95,26 @@ public class PageAccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
-                alertDialogBuilder
-                        .setCancelable(false)
-                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setTitle("Choississez ce que vous voulez faire :");
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), Vue.class);
+                // add a list
+                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règles du jeu"};
+                alertDialogBuilder.setItems(choix, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0: Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.boulier.Vue.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                        })
-                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), Vue.class);
-                                startActivity(intent);
+                            case 1: Intent intent1 = new Intent(getApplicationContext(), memory.bestmemorygames.boulier.Vue.class);
+                                startActivity(intent1);
                                 finish();
-                            }
-                        })
-                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
-                                startActivity(intent);
+                            case 2: Intent intent2 = new Intent(getApplicationContext(),memory.bestmemorygames.aide.AideBoulier.class);
+                                startActivity(intent2);
                                 finish();
-                            }
-                        });
+                        }
+                    }
+                });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }
@@ -134,34 +126,26 @@ public class PageAccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PageAccueilActivity.this);
-                alertDialogBuilder
-                        .setCancelable(false)
-                        .setPositiveButton("Jouer", new DialogInterface.OnClickListener() {
+                alertDialogBuilder.setTitle("Choississez ce que vous voulez faire :");
 
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), VueLoto.class);
+                // add a list
+                String[] choix = {"Jouer une partie normale", "Jouer une partie entraînement", "Connaître règles du jeu"};
+                alertDialogBuilder.setItems(choix, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0: Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.loto.VueLoto.class);
                                 startActivity(intent);
                                 finish();
-                            }
-                        })
-                        .setNeutralButton("Entraînement",new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), VueLoto.class);
-                                startActivity(intent);
+                            case 1: Intent intent1 = new Intent(getApplicationContext(), memory.bestmemorygames.loto.VueLoto.class);
+                                startActivity(intent1);
                                 finish();
-                            }
-                        })
-                        .setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent intent = new Intent(getApplicationContext(), PageAccueilActivity.class);
-                                startActivity(intent);
+                            case 2: Intent intent2 = new Intent(getApplicationContext(),memory.bestmemorygames.aide.AideLoto.class);
+                                startActivity(intent2);
                                 finish();
-                            }
-                        });
+                        }
+                    }
+                });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             }

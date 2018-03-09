@@ -8,18 +8,18 @@ import android.widget.Button;
 
 import memory.bestmemorygames.R;
 
-public class AidePiano extends AppCompatActivity {
+public class AideLoto extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_aide_piano);
+        setContentView(R.layout.activity_aide_loto);
 
         final Button buttonJouer = (Button) findViewById(R.id.id_button_jouer);
         buttonJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
+                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.loto.VueLoto.class);
                 startActivity(intent);
                 finish();
             }
@@ -29,7 +29,7 @@ public class AidePiano extends AppCompatActivity {
         buttonEntrainement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.piano.Vue.class);
+                Intent intent = new Intent(getApplicationContext(), memory.bestmemorygames.loto.VueLoto.class);
                 startActivity(intent);
                 finish();
             }
